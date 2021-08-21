@@ -48,7 +48,14 @@
                         <p>{{post.created_at}}</p>
                     </header>
                     <!-- Preview image figure-->
-                    <figure class="mb-4"><img class="img-fluid rounded" src="{{post.head_image.url}}" alt="..." />
+                    {% if p.head_image %}
+                    <figure class="mb-4"><img class="img-fluid rounded" src="{{post.head_image.url}}"
+                            alt="{{post.title}}head_image" />
+                        {% else %}
+                        <img class="img-fluid rounded" src="https://picsum.photos/seed/{{p.id}}/800/200"
+                            alt="random_image">
+                        {% endif %}
+
                     </figure>
                     <!-- Post content-->
                     <section class="mb-5">
